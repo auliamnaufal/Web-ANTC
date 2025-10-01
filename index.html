@@ -35,13 +35,15 @@
     .container{width:min(1200px, 92vw);margin:0 auto}
     /* Header */
     header{position:sticky;top:0;z-index:80;background:rgba(255,255,255,.8);backdrop-filter:saturate(180%) blur(10px);border-bottom:1px solid rgba(14,19,32,.08)}
-    .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0;gap:10px}
     .brand{display:flex;gap:12px;align-items:center}
     .brand .ball{width:28px;height:28px;border-radius:50%;background:radial-gradient(circle at 30% 30%, #fff, #fff 25%, #d2ffea 26%, #90f7c0 38%, #00d27f 60%);box-shadow:0 0 0 3px rgba(255,255,255,.08), 0 8px 20px rgba(0,0,0,.35);position:relative}
     .brand .ball:before,.brand .ball:after{content:'';position:absolute;inset:auto;left:4px;right:4px;top:8px;bottom:8px;border:2px solid rgba(255,255,255,.85);border-top:none;border-bottom:none;border-radius:50%}
     .brand h1{font-size:18px;margin:0;font-weight:700;letter-spacing:.2px}
-    .nav a.link{opacity:.9;padding:10px 14px;border-radius:999px}
-    .nav a.link:hover{background:rgba(255,255,255,.06)}
+    nav.hide-mobile{display:flex;gap:6px}
+    nav.hide-mobile a.link{opacity:.9;padding:10px 14px;border-radius:999px}
+    nav.hide-mobile a.link:hover{background:rgba(0,0,0,.04)}
+    .menu-toggle{display:none;border:1px solid rgba(14,19,32,.18);background:#fff;border-radius:12px;padding:10px 12px;font-weight:700}
     .cta{display:flex;gap:10px}
     .btn{display:inline-flex;align-items:center;gap:10px;border:none;border-radius:999px;padding:12px 18px;font-weight:700;cursor:pointer;transition:transform .05s ease, box-shadow .2s ease;box-shadow:var(--shadow)}
     .btn:active{transform:translateY(1px)}
@@ -72,7 +74,7 @@
     section{padding:70px 0}
     .section-title{font-size:28px;margin:0 0 8px}
     .section-sub{color:var(--muted);margin:0 0 24px}
-    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .grid-3{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px}
     .card{padding:20px;border-radius:var(--radius);background:var(--card);border:1px solid rgba(14,19,32,.08);box-shadow:var(--shadow)}
     .tag{display:inline-block;padding:6px 10px;border-radius:999px;background:rgba(0,210,127,.15);color:var(--accent);font-weight:700;font-size:12px}
     .kpi{display:flex;gap:16px;align-items:center}
@@ -121,11 +123,28 @@
     .contact-card a{font-weight:800}
     @media (max-width: 980px){
       .hero-grid,.venue,.footer-grid{grid-template-columns:1fr}
+      .logo-grid{grid-template-columns:repeat(3,1fr)}
+      /* Mobile nav */
+      .menu-toggle{display:inline-flex}
+      nav.hide-mobile{position:absolute;right:16px;top:62px;flex-direction:column;background:#fff;border:1px solid rgba(14,19,32,.12);border-radius:14px;box-shadow:var(--shadow);display:none;min-width:200px}
+      nav.hide-mobile.open{display:flex}
+      nav.hide-mobile a.link{padding:12px 14px;border-radius:10px}
+      .cta{display:none}
+      /* Timeline tighter */
+      .timeline{padding-left:26px}
+      .timeline:before{left:12px}
+
       .grid-3{grid-template-columns:1fr 1fr}
       .logo-grid{grid-template-columns:repeat(3,1fr)}
     }
     @media (max-width: 640px){
-      .grid-3{grid-template-columns:1fr}
+      .countdown{grid-template-columns:repeat(2,1fr)}
+      .rules{columns:1}
+      .reg-steps{grid-template-columns:1fr}
+      .logo-grid{grid-template-columns:repeat(2,1fr)}
+      .contact-grid{grid-template-columns:1fr}
+      .map{height:280px}
+
       .countdown{grid-template-columns:repeat(2,1fr)}
       .rules{columns:1}
       .reg-steps{grid-template-columns:1fr}
@@ -134,385 +153,393 @@
   </style>
 </head>
 <body>
-	<header>
-		<div class="container nav">
-		  <div class="brand">
-			<div class="ball" aria-hidden="true"></div>
-			<h1>Airlangga National Tennis</h1>
-		  </div>
-		  <nav class="hide-mobile">
-			<a class="link" href="#about">Tentang</a>
-			<a class="link" href="#divisions">Divisi</a>
-			<a class="link" href="#schedule">Jadwal</a>
-			<a class="link" href="#venue">Lokasi</a>
-			<a class="link" href="#register">Daftar</a>
-			<a class="link" href="#faq">FAQ</a>
-		  </nav>
-		  <div class="cta">
-			<a href="#register" class="btn btn-outline">Daftar</a>
-			<a href="#rules" class="btn btn-primary">Peraturan</a>
-		  </div>
-		</div>
-	  </header>
-	
-	  <main>
-		<!-- HERO -->
-		<section class="hero">
-		  <div class="container hero-grid">
-			<div>
-			  <div class="eyebrow">12–14 November · PDAM Surabaya</div>
-			  <h2 class="title">Airlangga National Tennis Competition</h2>
-			  <p class="subtitle">Terbuka untuk <b>Mahasiswa</b> dan <b>Umum</b>. Tiga hari pertandingan, sportivitas, dan momen juara di Surabaya.</p>
-			  <div class="badges">
-				<span class="chip">Lapangan Keras · Outdoor</span>
-				<span class="chip">Tunggal & Gandaspan>
-				<span class="chip">Level Nasional</span>
-			  </div>
-			  <div class="hero-card glass">
-				<div style="display:flex;gap:12px;align-items:center;justify-content:space-between;flex-wrap:wrap">
-				  <div class="kpi"><b id="registered">120+</b><span>Perkiraan Peserta</span></div>
-				  <div class="kpi"><b>3</b><span>Hari Pertandingan</span></div>
-				  <div class="kpi"><b>2</b><span>Divisi</span></div>
-				</div>
-				<div class="countdown" aria-label="Countdown to start">
-				  <div class="tile"><h3 id="dd">00</h3><span>Hari</span></div>
-				  <div class="tile"><h3 id="hh">00</h3><span>Jam</span></div>
-				  <div class="tile"><h3 id="mm">00</h3><span>Menit</span></div>
-				  <div class="tile"><h3 id="ss">00</h3><span>Detik</span></div>
-				</div>
-				<div style="display:flex;gap:10px;margin-top:16px;flex-wrap:wrap">
-				  <a class="btn btn-primary" href="#register">Daftar Sekarang</a>
-				  <a class="btn btn-outline" href="#schedule">Lihat Jadwal</a>
-				</div>
-			  </div>
-			</div>
-			<div class="hero-illus">
-			  <div class="court"></div>
-			  <div class="ball-3d" aria-hidden="true"></div>
-			  <div class="ball-3d" aria-hidden="true"></div>
-			</div>
-		  </div>
-		</section>
-	
-		<!-- ABOUT -->
-		<section id="about">
-		  <div class="container">
-			<h3 class="section-title">Tentang Acara</h3>
-			<p class="section-sub">Diselenggarakan di Surabaya, Kompetisi Tenis Nasional Airlangga mempertemukan pemain mahasiswa dan masyarakat umum dari seluruh Indonesia. Rasakan pengalaman turnamen profesional dengan wasit bersertifikat, fasilitas berkualitas, dan komunitas yang ramah.</p>
-			<div class="grid-3">
-			  <div class="card">
-				<span class="tag">Mahasiswa</span>
-				<h4>Semangat Kampus</h4>
-				<p>Bertanding dengan mahasiswa dari berbagai kampus. Bawa nama almamater dan raih kebanggaan nasional.</p>
-			  </div>
-			  <div class="card">
-				<span class="tag" style="background:rgba(72,166,255,.18);color:var(--accent-2)">Umum</span>
-				<h4>Open Bracket</h4>
-				<p>Untuk pecinta tenis dewasa yang menginginkan pertandingan berkualitas dengan suasana profesional.</p>
-			  </div>
-			  <div class="card">
-				<span class="tag" style="background:rgba(255,211,77,.18);color:var(--warning)">Fair Play</span>
-				<h4>Sportivitas Utama</h4>
-				<p>Kami menjunjung tinggi respek, integritas, dan semangat kompetitif. Nikmati permainan elite dalam suasana bersahabat.</p>
-			  </div>
-			</div>
-		  </div>
-		</section>
-	
-		<!-- DIVISIONS & FORMATS -->
-		<section id="divisions">
-		  <div class="container">
-			<h3 class="section-title">Divisi & Format</h3>
-			<p class="section-sub">Tunggal dan Ganda untuk divisi Mahasiswa dan Umum. Ukuran bagan tergantung jumlah pendaftar. Unggulan ditentukan dari hasil terbaru bila tersedia.</p>
-			<div class="grid-3">
-			  <div class="card">
-				<h4>Divisi Mahasiswa</h4>
-				<ul>
-				  <li>Tunggal Putra & Putri</li>
-				  <li>Ganda Putra & Putri</li>
-				  <li>Format: Best of 3 set, Super Tie-break 10 poin (set ke-3)</li>
-				</ul>
-			  </div>
-			  <div class="card">
-				<h4>Divisi Umum</h4>
-				<ul>
-				  <li>Tunggal Open</li>
-				  <li>Ganda Open</li>
-				  <li>Format: Best of 3 set, Super Tie-break 10 poin (set ke-3)</li>
-				</ul>
-			  </div>
-			  <div class="card">
-				<h4>Ofisial & Fasilitas</h4>
-				<ul>
-				  <li>Wasit bersertifikat</li>
-				  <li>Pos P3K & hidrasi</li>
-				</ul>
-			  </div>
-			</div>
-		  </div>
-		</section>
-	
-		<!-- SCHEDULE -->
-		<section id="schedule">
-		  <div class="container">
-			<h3 class="section-title">Jadwal (12–14 November)</h3>
-			<p class="section-sub">WIB (GMT+7). Jadwal dapat berubah menyesuaikan jumlah peserta & cuaca.</p>
-	
-			<h4 class="section-title" style="font-size:20px;color:var(--accent-2);margin-top:10px">Hari 1 · Rabu, 12 Nov</h4>
-			<div class="timeline">
-			  <div class="ti">
-				<div class="ti-head"><span class="time">07:00</span><span class="date">Registrasi & Pemanasan</span></div>
-				<div class="meta">Pengambilan ID & pembukaan lapangan</div>
-			  </div>
-			  <div class="ti">
-				<div class="ti-head"><span class="time">08:00</span><span class="date">Upacara Pembukaan</span></div>
-				<div class="meta">Sambutan & pengarahan</div>
-			  </div>
-			  <div class="ti">
-				<div class="ti-head"><span class="time">08:30</span><span class="date">Babak 32 Besar</span></div>
-				<div class="meta">Semua divisi Tunggal lebih dulu</div>
-			  </div>
-			  <div class="ti">
-				<div class="ti-head"><span class="time">13:30</span><span class="date">Babak 16 Besar</span></div>
-				<div class="meta">Singles & Doubles</div>
-			  </div>
-			</div>
-	
-			<h4 class="section-title" style="font-size:20px;color:var(--accent-2);margin-top:26px">Hari 2 · Kamis, 13 Nov</h4>
-			<div class="timeline">
-			  <div class="ti">
-				<div class="ti-head"><span class="time">08:00</span><span class="date">Perempat Final</span></div>
-				<div class="meta">All divisions</div>
-			  </div>
-			  <div class="ti">
-				<div class="ti-head"><span class="time">13:30</span><span class="date">Semifinal</span></div>
-				<div class="meta">Bergantian di beberapa lapangan</div>
-			  </div>
-			  <div class="ti">
-				<div class="ti-head"><span class="time">17:30</span><span class="date">Tantangan Keterampilan</span></div>
-				<div class="meta">Serve tercepat & target practice (opsional)</div>
-			  </div>
-			</div>
-	
-			<h4 class="section-title" style="font-size:20px;color:var(--accent-2);margin-top:26px">Hari 3 · Jumat, 14 Nov</h4>
-			<div class="timeline">
-			  <div class="ti">
-				<div class="ti-head"><span class="time">09:00</span><span class="date">Final</span></div>
-				<div class="meta">Semua kategori</div>
-			  </div>
-			  <div class="ti">
-				<div class="ti-head"><span class="time">14:00</span><span class="date">Penghargaan & Foto</span></div>
-				<div class="meta">Piala, medali, sertifikat</div>
-			  </div>
-			  <div class="ti">
-				<div class="ti-head"><span class="time">15:00</span><span class="date">Penutupan</span></div>
-				<div class="meta">Terima kasih & umpan balik</div>
-			  </div>
-			</div>
-		  </div>
-		</section>
-	
-		<!-- VENUE -->
-		<section id="venue">
-		  <div class="container">
-			<h3 class="section-title">Lokasi — PDAM Surabaya</h3>
-			<p class="section-sub">Terletak di pusat kota dengan beberapa lapangan keras outdoor. Disarankan menggunakan ride-hailing; tetap terhidrasi.</p>
-			<div class="venue">
-			  <div class="panel">
-				<h4>Alamat</h4>
-				<p>Lapangan Tenis PDAM Surabaya<br/>Surabaya, Jawa Timur, Indonesia</p>
-				<ul>
-				  <li>Patokan: Komplek kantor PDAM</li>
-				  <li>Fasilitas: toilet, area teduh, kantin</li>
-				  <li>Cuaca: panas & lembap — bawa sunscreen & topi</li>
-				</ul>
-				<div class="venue-features">
-				  <div class="vchip">🏟️ Hard Court</div>
-				  <div class="vchip">🩹 P3K</div>
-				  <div class="vchip">💧 Hidrasi</div>
-				</div>
-			  </div>
-			  <div>
-				<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3957.484352339383!2d112.74327007630346!3d-7.299351992708297!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd7fba4658ca1db%3A0x55dfe0a2e9c42a65!2sLapangan%20Tenis%20PDAM!5e0!3m2!1sen!2sid!4v1759334705821!5m2!1sen!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-			  </div>
-			</div>
-		  </div>
-		</section>
-	
-		<!-- PRIZES & PERKS -->
-		<section id="prizes">
-		  <div class="container">
-			<h3 class="section-title">Hadiah & Benefit</h3>
-			<p class="section-sub">Para juara membawa pulang piala dan kebanggaan. Seluruh finalis mendapatkan medali dan sertifikat.</p>
-			<div class="grid-3">
-			  <div class="card"><div class="trophy">🏆</div><h4>Juara</h4><p>Piala + Medali + Sertifikat</p></div>
-			  <div class="card"><div class="trophy">🥈</div><h4>Runner-up</h4><p>Medali + Sertifikat</p></div>
-			  <div class="card"><div class="trophy">🤝</div><h4>MVP</h4><p>Apresiasi khusus untuk player terbaik</p></div>
-			</div>
-		  </div>
-		</section>
-	
-		<!-- RULES SNAPSHOT -->
-		<section id="rules">
-		  <div class="container">
-			<h3 class="section-title">Ringkasan Peraturan</h3>
-			<p class="section-sub">Buku peraturan penuh berlaku setiap saat. Berikut poin pentingnya:</p>
-			<ul class="rules">
-			  <li>Bola: bola hard-court berstandar ITF.</li>
-			  <li>Skor: Best of 3 set, Super Tie-break 10 poin (set ke-3).</li>
-			  <li>Pemanasan: maksimal 5 menit.</li>
-			  <li>Registrasi: hadir 30 menit sebelum jadwal tanding.</li>
-			  <li>Coaching: tidak diperbolehkan saat game; boleh saat jeda set sesuai ketentuan.</li>
-			  <li>Kode Etik: hormati ofisial dan lawan; pelanggaran dapat dikenai sanksi.</li>
-			  <li>Pensiun/Walkover: wajib dilaporkan segera ke wasit utama.</li>
-			  <li>Seragam: sepatu non-marking; bawa dua warna kaus (terang & gelap).</li>
-			</ul>
-			<div style="margin-top:14px">
-			  <a class="btn btn-outline" href="#">Unduh Buku Peraturan (PDF)</a>
-			</div>
-		  </div>
-		</section>
-	
-		<!-- REGISTRATION -->
-		<section id="register">
-		  <div class="container">
-			<h3 class="section-title">Pendaftaran</h3>
-			<p class="section-sub">Slot terbatas per bagan. Amankan tempatmu lebih awal.</p>
-			<div class="reg-steps">
-			  <div class="step">
-				<h4>1) Pilih Divisi</h4>
-				<p>Mahasiswa atau Umum · Tunggal/Ganda</p>
-			  </div>
-			  <div class="step">
-				<h4>2) Siapkan Dokumen</h4>
-				<p>KTP/Kartu Identitas; KTM (untuk divisi Mahasiswa); surat keterangan sehat (opsional).</p>
-			  </div>
-			  <div class="step">
-				<h4>3) Kirim Formulir</h4>
-				<p>Isi formulir online dan tunggu konfirmasi via email/WhatsApp.</p>
-			  </div>
-			</div>
-			<div style="display:flex;gap:10px;margin-top:16px;flex-wrap:wrap">
-			  <a class="btn btn-primary" href="#">Daftar Sekarang</a>
-			  <a class="btn btn-outline" href="#faq">Baca FAQ</a>
-			</div>
-			<!-- <p style="color:var(--muted);margin-top:10px">Disarankan daftar early-bird. Pengembalian dana mengikuti kebijakan di FAQ.</p> -->
-		  </div>
-		</section>
-	
-		<!-- SPONSORS -->
-		<!-- <section id="sponsors">
-		  <div class="container">
-			<h3 class="section-title">Sponsor & Mitra</h3>
-			<p class="section-sub">Terima kasih atas dukungan untuk tenis komunitas.</p>
-			<div class="logo-grid">
-			  <div class="logo">Logo Anda</div>
-			  <div class="logo">Logo Anda</div>
-			  <div class="logo">Logo Anda</div>
-			  <div class="logo">Logo Anda</div>
-			  <div class="logo">Logo Anda</div>
-			</div>
-		  </div>
-		</section> -->
-	
-		<!-- FAQ -->
-		<section id="faq">
-		  <div class="container">
-			<h3 class="section-title">FAQ</h3>
-			<div style="display:grid;gap:10px">
-			  <details>
-				<summary>Siapa yang boleh ikut divisi Mahasiswa?</summary>
-				<p>Mahasiswa aktif dengan KTM yang masih berlaku. Lulusan baru dapat bergabung di divisi Umum.</p>
-			  </details>
-			  <details>
-				<summary>Apakah harus membawa bola sendiri?</summary>
-				<p>Bola pertandingan disediakan panitia. Bola pemanasan menjadi tanggung jawab pemain.</p>
-			  </details>
-			  <details>
-				<summary>Bagaimana jika hujan?</summary>
-				<p>Pertandingan dapat ditunda atau dijadwal ulang. Keselamatan & kondisi lapangan adalah prioritas.</p>
-			  </details>
-			  <details>
-				<summary>Apakah ada kebijakan refund?</summary>
-				<p>Refund tersedia sebelum bagan dirilis. Setelah rilis, refund umumnya tidak diberikan kecuali alasan medis (dengan bukti).</p>
-			  </details>
-			</div>
-		  </div>
-		</section>
-	
-		<!-- CONTACT -->
-		<section id="contact">
-		  <div class="container">
-			<div class="contact-band">
-			  <h3 class="section-title" style="margin:0 0 6px">Kontak</h3>
-			  <p class="section-sub" style="color:#1c2233;margin:0 0 16px">Ada pertanyaan soal pendaftaran, jadwal, atau kerja sama? Hubungi kami!</p>
-			  <div class="contact-grid">
-				<div class="contact-card">
-				  <h4>Email</h4>
-				  <p><a href="mailto:tennis@airlangga-event.id">tennis@airlangga-event.id</a></p>
-				</div>
-				<div class="contact-card">
-				  <h4>Telepon</h4>
-				  <p><a href="tel:+6281234567890">+62 812-3456-7890</a></p>
-				</div>
-				<div class="contact-card">
-				  <h4>WhatsApp</h4>
-				  <p><a href="https://wa.me/6281234567890" target="_blank" rel="noopener">Chat via WhatsApp</a></p>
-				</div>
-			  </div>
-			</div>
-		  </div>
-		</section>
-	  </main>
-	
-	  <footer>
-		<div class="container">
-		  <div class="footer-grid">
-			<div>
-			  <div class="badge">Diselenggarakan oleh Unit Kegiatan Mahasiswa Tenis Lapangan Universitas Airlangga</div>
-			  <p style="margin-top:10px">© <span id="year"></span> Airlangga National Tennis Competition. Hak cipta dilindungi.</p>
-			</div>
-			<div>
-			  <h4 style="margin:0 0 8px">Quick Link</h4>
-			  <p><a href="#register">Daftar</a> · <a href="#rules">Peraturan</a> · <a href="#schedule">Jadwal</a></p>
-			</div>
-			<div class="social">
-			  <h4 style="margin:0 0 8px">Ikuti</h4>
-			  <a href="#">Instagram</a>
-			  <a href="#">X</a>
-			  <a href="#">TikTok</a>
-			</div>
-		  </div>
-		</div>
-	  </footer>
-	
-	  <script>
-		// Countdown to 12 Nov 2025 08:00 GMT+7 (Asia/Jakarta)
-		(function(){
-		  const tzOffsetMs = 7 * 60 * 60 * 1000; // GMT+7
-		  const target = new Date(Date.UTC(2025, 10, 12, 1, 0, 0)); // 08:00 WIB (month is 0-indexed)
-		  function pad(n){return n.toString().padStart(2,'0')}
-		  function tick(){
-			const now = new Date();
-			const diff = target - now;
-			const dd = document.getElementById('dd');
-			const hh = document.getElementById('hh');
-			const mm = document.getElementById('mm');
-			const ss = document.getElementById('ss');
-			if(diff <= 0){ dd.textContent = '00'; hh.textContent='00'; mm.textContent='00'; ss.textContent='00'; return }
-			const days = Math.floor(diff / (1000*60*60*24));
-			const hours = Math.floor((diff / (1000*60*60)) % 24);
-			const minutes = Math.floor((diff / (1000*60)) % 60);
-			const seconds = Math.floor((diff / 1000) % 60);
-			dd.textContent = pad(days); hh.textContent = pad(hours); mm.textContent = pad(minutes); ss.textContent = pad(seconds);
-		  }
-		  setInterval(tick, 1000); tick();
-		  document.getElementById('year').textContent = new Date().getFullYear();
-		  // smooth anchors
-		  document.querySelectorAll('a[href^="#"]').forEach(a=>{
-			a.addEventListener('click', e=>{ const id = a.getAttribute('href'); if(id.length>1){ e.preventDefault(); document.querySelector(id).scrollIntoView({behavior:'smooth', block:'start'}) } })
-		  });
-		})();
-	  </script>
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <div class="ball" aria-hidden="true"></div>
+        <h1>Airlangga National Tennis</h1>
+      </div>
+      <button class="menu-toggle" aria-label="Buka menu">☰</button>
+      <nav class="hide-mobile">
+        <a class="link" href="#about">Tentang</a>
+        <a class="link" href="#divisions">Divisi</a>
+        <a class="link" href="#schedule">Jadwal</a>
+        <a class="link" href="#venue">Lokasi</a>
+        <a class="link" href="#register">Daftar</a>
+        <a class="link" href="#faq">FAQ</a>
+      </nav>
+      <div class="cta">
+        <a href="#register" class="btn btn-outline">Daftar</a>
+        <a href="#rules" class="btn btn-primary">Peraturan</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow">12–14 November · PDAM Surabaya</div>
+          <h2 class="title">Kompetisi Tenis Nasional Airlangga</h2>
+          <p class="subtitle">Terbuka untuk <b>Mahasiswa</b> dan <b>Umum</b>. Tiga hari pertandingan, sportivitas, dan momen juara di Surabaya.</p>
+          <div class="badges">
+            <span class="chip">Hard Court</span>
+            <span class="chip">Tunggal & Ganda</span>
+            <span class="chip">Level Nasional</span>
+          </div>
+          <div class="hero-card glass">
+            <div style="display:flex;gap:12px;align-items:center;justify-content:space-between;flex-wrap:wrap">
+              <div class="kpi"><b id="registered">120+</b><span>Perkiraan Peserta</span></div>
+              <div class="kpi"><b>3</b><span>Hari Pertandingan</span></div>
+              <div class="kpi"><b>2</b><span>Divisi</span></div>
+            </div>
+            <div class="countdown" aria-label="Countdown to start">
+              <div class="tile"><h3 id="dd">00</h3><span>Hari</span></div>
+              <div class="tile"><h3 id="hh">00</h3><span>Jam</span></div>
+              <div class="tile"><h3 id="mm">00</h3><span>Menit</span></div>
+              <div class="tile"><h3 id="ss">00</h3><span>Detik</span></div>
+            </div>
+            <div style="display:flex;gap:10px;margin-top:16px;flex-wrap:wrap">
+              <a class="btn btn-primary" href="#register">Daftar Sekarang</a>
+              <a class="btn btn-outline" href="#schedule">Lihat Jadwal</a>
+            </div>
+          </div>
+        </div>
+        <div class="hero-illus">
+          <div class="court"></div>
+          <div class="ball-3d" aria-hidden="true"></div>
+          <div class="ball-3d" aria-hidden="true"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about">
+      <div class="container">
+        <h3 class="section-title">Tentang Acara</h3>
+        <p class="section-sub">Diselenggarakan di Surabaya, Kompetisi Tenis Nasional Airlangga mempertemukan pemain mahasiswa dan masyarakat umum dari seluruh Indonesia. Rasakan pengalaman turnamen profesional dengan wasit bersertifikat, fasilitas berkualitas, dan komunitas yang ramah.</p>
+        <div class="grid-3">
+          <div class="card">
+            <span class="tag">Mahasiswa</span>
+            <h4>Semangat Kampus</h4>
+            <p>Bertanding dengan mahasiswa dari berbagai kampus. Bawa nama almamater dan raih kebanggaan nasional.</p>
+          </div>
+          <div class="card">
+            <span class="tag" style="background:rgba(72,166,255,.18);color:var(--accent-2)">Umum</span>
+            <h4>Open Bracket</h4>
+            <p>Untuk pecinta tenis dewasa yang menginginkan pertandingan berkualitas dengan suasana profesional.</p>
+          </div>
+          <div class="card">
+            <span class="tag" style="background:rgba(255,211,77,.18);color:var(--warning)">Fair Play</span>
+            <h4>Sportivitas Utama</h4>
+            <p>Kami menjunjung tinggi respek, integritas, dan semangat kompetitif. Nikmati permainan elite dalam suasana bersahabat.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DIVISIONS & FORMATS -->
+    <section id="divisions">
+      <div class="container">
+        <h3 class="section-title">Divisi & Format</h3>
+        <p class="section-sub">Tunggal dan Ganda untuk divisi Mahasiswa dan Umum. Ukuran bagan tergantung jumlah pendaftar. Unggulan ditentukan dari hasil terbaru bila tersedia.</p>
+        <div class="grid-3">
+          <div class="card">
+            <h4>Divisi Mahasiswa</h4>
+            <ul>
+              <li>Tunggal Putra & Putri</li>
+              <li>Ganda Putra & Putri</li>
+              <li>Format: Best of 3 set, Super Tie-break 10 poin (set ke-3)</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h4>Divisi Umum</h4>
+            <ul>
+              <li>Tunggal Open</li>
+              <li>Ganda Open</li>
+              <li>Format: Best of 3 set, Super Tie-break 10 poin (set ke-3)</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h4>Ofisial & Fasilitas</h4>
+            <ul>
+              <li>Wasit bersertifikat</li>
+              <li>Pos P3K & hidrasi</li>
+              <li>Jasa stringing (berbayar, di lokasi)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SCHEDULE -->
+    <section id="schedule">
+      <div class="container">
+        <h3 class="section-title">Jadwal (12–14 November)</h3>
+        <p class="section-sub">WIB (GMT+7). Jadwal dapat berubah menyesuaikan jumlah peserta & cuaca.</p>
+
+        <h4 class="section-title" style="font-size:20px;color:var(--accent-2);margin-top:10px">Hari 1 · Rabu, 12 Nov</h4>
+        <div class="timeline">
+          <div class="ti">
+            <div class="ti-head"><span class="time">07:00</span><span class="date">Registrasi & Pemanasan</span></div>
+            <div class="meta">Pengambilan ID & pembukaan lapangan</div>
+          </div>
+          <div class="ti">
+            <div class="ti-head"><span class="time">08:00</span><span class="date">Upacara Pembukaan</span></div>
+            <div class="meta">Sambutan & pengarahan</div>
+          </div>
+          <div class="ti">
+            <div class="ti-head"><span class="time">08:30</span><span class="date">Babak 32 Besar</span></div>
+            <div class="meta">Semua divisi, Tunggal lebih dulu</div>
+          </div>
+          <div class="ti">
+            <div class="ti-head"><span class="time">13:30</span><span class="date">Babak 16 Besar</span></div>
+            <div class="meta">Tunggal & Ganda</div>
+          </div>
+        </div>
+
+        <h4 class="section-title" style="font-size:20px;color:var(--accent-2);margin-top:26px">Hari 2 · Kamis, 13 Nov</h4>
+        <div class="timeline">
+          <div class="ti">
+            <div class="ti-head"><span class="time">08:00</span><span class="date">Perempat Final</span></div>
+            <div class="meta">Semua divisi</div>
+          </div>
+          <div class="ti">
+            <div class="ti-head"><span class="time">13:30</span><span class="date">Semifinal</span></div>
+            <div class="meta">Bergantian di beberapa lapangan</div>
+          </div>
+          <div class="ti">
+            <div class="ti-head"><span class="time">17:30</span><span class="date">Tantangan Keterampilan</span></div>
+            <div class="meta">Serve tercepat & target practice (opsional)</div>
+          </div>
+        </div>
+
+        <h4 class="section-title" style="font-size:20px;color:var(--accent-2);margin-top:26px">Hari 3 · Jumat, 14 Nov</h4>
+        <div class="timeline">
+          <div class="ti">
+            <div class="ti-head"><span class="time">09:00</span><span class="date">Final</span></div>
+            <div class="meta">Semua kategori</div>
+          </div>
+          <div class="ti">
+            <div class="ti-head"><span class="time">14:00</span><span class="date">Penghargaan & Foto</span></div>
+            <div class="meta">Piala, medali, sertifikat</div>
+          </div>
+          <div class="ti">
+            <div class="ti-head"><span class="time">15:00</span><span class="date">Penutupan</span></div>
+            <div class="meta">Terima kasih & umpan balik</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- VENUE -->
+    <section id="venue">
+      <div class="container">
+        <h3 class="section-title">Lokasi — PDAM Surabaya</h3>
+        <p class="section-sub">Terletak di pusat kota dengan beberapa lapangan keras outdoor. Disarankan menggunakan ride-hailing; tetap terhidrasi.</p>
+        <div class="venue">
+          <div class="panel">
+            <h4>Alamat</h4>
+            <p>Lapangan Tenis PDAM Surabaya<br/>Surabaya, Jawa Timur, Indonesia</p>
+            <ul>
+              <li>Patokan: Komplek kantor PDAM</li>
+              <li>Fasilitas: toilet, area teduh, kantin</li>
+              <li>Cuaca: panas & lembap — bawa sunscreen & topi</li>
+            </ul>
+            <div class="venue-features">
+              <div class="vchip">🏟️ Hard Court</div>
+              <div class="vchip">🩹 P3K</div>
+              <div class="vchip">💧 Hidrasi</div>
+            </div>
+          </div>
+          <div>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3957.484352339383!2d112.74327007630346!3d-7.299351992708297!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd7fba4658ca1db%3A0x55dfe0a2e9c42a65!2sLapangan%20Tenis%20PDAM!5e0!3m2!1sen!2sid!4v1759334705821!5m2!1sen!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRIZES & PERKS -->
+    <section id="prizes">
+      <div class="container">
+        <h3 class="section-title">Hadiah & Benefit</h3>
+        <p class="section-sub">Para juara membawa pulang piala dan kebanggaan. Seluruh finalis mendapatkan medali dan sertifikat.</p>
+        <div class="grid-3">
+          <div class="card"><div class="trophy">🏆</div><h4>Juara</h4><p>Piala + Medali + Sertifikat</p></div>
+          <div class="card"><div class="trophy">🥈</div><h4>Runner-up</h4><p>Medali + Sertifikat</p></div>
+          <div class="card"><div class="trophy">🤝</div><h4>Penghargaan Fair-Play</h4><p>Apresiasi khusus untuk sportivitas teladan</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- RULES SNAPSHOT -->
+    <section id="rules">
+      <div class="container">
+        <h3 class="section-title">Ringkasan Peraturan</h3>
+        <p class="section-sub">Buku peraturan penuh berlaku setiap saat. Berikut poin pentingnya:</p>
+        <ul class="rules">
+          <li>Bola: bola hard-court berstandar ITF.</li>
+          <li>Skor: Best of 3 set, Super Tie-break 10 poin (set ke-3).</li>
+          <li>Pemanasan: maksimal 5 menit.</li>
+          <li>Registrasi: hadir 30 menit sebelum jadwal tanding.</li>
+          <li>Coaching: tidak diperbolehkan saat game; boleh saat jeda set sesuai ketentuan.</li>
+          <li>Kode Etik: hormati ofisial dan lawan; pelanggaran dapat dikenai sanksi.</li>
+          <li>Pensiun/Walkover: wajib dilaporkan segera ke wasit utama.</li>
+          <li>Seragam: sepatu non-marking; bawa dua warna kaus (terang & gelap).</li>
+        </ul>
+        <div style="margin-top:14px">
+          <a class="btn btn-outline" href="#">Unduh Buku Peraturan (PDF)</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- REGISTRATION -->
+    <section id="register">
+      <div class="container">
+        <h3 class="section-title">Pendaftaran</h3>
+        <p class="section-sub">Slot terbatas per bagan. Amankan tempatmu lebih awal.</p>
+        <div class="reg-steps">
+          <div class="step">
+            <h4>1) Pilih Divisi</h4>
+            <p>Mahasiswa atau Umum · Tunggal/Ganda</p>
+          </div>
+          <div class="step">
+            <h4>2) Siapkan Dokumen</h4>
+            <p>KTP/Kartu Identitas; KTM (untuk divisi Mahasiswa); surat keterangan sehat (opsional).</p>
+          </div>
+          <div class="step">
+            <h4>3) Kirim Formulir</h4>
+            <p>Isi formulir online dan tunggu konfirmasi via email/WhatsApp.</p>
+          </div>
+        </div>
+        <div style="display:flex;gap:10px;margin-top:16px;flex-wrap:wrap">
+          <a class="btn btn-primary" href="#">Daftar Sekarang</a>
+          <a class="btn btn-outline" href="#faq">Baca FAQ</a>
+        </div>
+        <!-- <p style="color:var(--muted);margin-top:10px">Disarankan daftar early-bird. Pengembalian dana mengikuti kebijakan di FAQ.</p> -->
+      </div>
+    </section>
+
+    <!-- SPONSORS -->
+    <!-- <section id="sponsors">
+      <div class="container">
+        <h3 class="section-title">Sponsor & Mitra</h3>
+        <p class="section-sub">Terima kasih atas dukungan untuk tenis komunitas.</p>
+        <div class="logo-grid">
+          <div class="logo">Logo Anda</div>
+          <div class="logo">Logo Anda</div>
+          <div class="logo">Logo Anda</div>
+          <div class="logo">Logo Anda</div>
+          <div class="logo">Logo Anda</div>
+        </div>
+      </div>
+    </section> -->
+
+    <!-- FAQ -->
+    <section id="faq">
+      <div class="container">
+        <h3 class="section-title">FAQ</h3>
+        <div style="display:grid;gap:10px">
+          <details>
+            <summary>Siapa yang boleh ikut divisi Mahasiswa?</summary>
+            <p>Mahasiswa aktif dengan KTM yang masih berlaku. Lulusan baru dapat bergabung di divisi Umum.</p>
+          </details>
+          <details>
+            <summary>Apakah harus membawa bola sendiri?</summary>
+            <p>Bola pertandingan disediakan panitia. Bola pemanasan menjadi tanggung jawab pemain.</p>
+          </details>
+          <details>
+            <summary>Bagaimana jika hujan?</summary>
+            <p>Pertandingan dapat ditunda atau dijadwal ulang. Keselamatan & kondisi lapangan adalah prioritas.</p>
+          </details>
+          <details>
+            <summary>Apakah ada kebijakan refund?</summary>
+            <p>Refund tersedia sebelum bagan dirilis. Setelah rilis, refund umumnya tidak diberikan kecuali alasan medis (dengan bukti).</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <div class="container">
+        <div class="contact-band">
+          <h3 class="section-title" style="margin:0 0 6px">Kontak</h3>
+          <p class="section-sub" style="color:#1c2233;margin:0 0 16px">Ada pertanyaan soal pendaftaran, jadwal, atau kerja sama? Hubungi kami!</p>
+          <div class="contact-grid">
+            <div class="contact-card">
+              <h4>Email</h4>
+              <p><a href="mailto:tennis@airlangga-event.id">tennis@airlangga-event.id</a></p>
+            </div>
+            <div class="contact-card">
+              <h4>Telepon</h4>
+              <p><a href="tel:+6281234567890">+62 812-3456-7890</a></p>
+            </div>
+            <div class="contact-card">
+              <h4>WhatsApp</h4>
+              <p><a href="https://wa.me/6281234567890" target="_blank" rel="noopener">Chat via WhatsApp</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="badge">Diselenggarakan oleh UKM Tenis Lapangan Universitas Airlangga</div>
+          <p style="margin-top:10px">© <span id="year"></span> Airlangga National Tennis Competition. Hak cipta dilindungi.</p>
+        </div>
+        <div>
+          <h4 style="margin:0 0 8px">Tautan Cepat</h4>
+          <p><a href="#register">Daftar</a> · <a href="#rules">Peraturan</a> · <a href="#schedule">Jadwal</a></p>
+        </div>
+        <div class="social">
+          <h4 style="margin:0 0 8px">Ikuti</h4>
+          <a href="#">Instagram</a>
+          <a href="#">X</a>
+          <a href="#">TikTok</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile nav toggle
+    document.addEventListener('DOMContentLoaded',()=>{
+      const toggle=document.querySelector('.menu-toggle');
+      const nav=document.querySelector('header nav');
+      if(toggle&&nav){ toggle.addEventListener('click',()=> nav.classList.toggle('open')); }
+    });
+    // Countdown to 12 Nov 2025 08:00 GMT+7 (Asia/Jakarta)
+    (function(){
+      const tzOffsetMs = 7 * 60 * 60 * 1000; // GMT+7
+      const target = new Date(Date.UTC(2025, 10, 12, 1, 0, 0)); // 08:00 WIB (month is 0-indexed)
+      function pad(n){return n.toString().padStart(2,'0')}
+      function tick(){
+        const now = new Date();
+        const diff = target - now;
+        const dd = document.getElementById('dd');
+        const hh = document.getElementById('hh');
+        const mm = document.getElementById('mm');
+        const ss = document.getElementById('ss');
+        if(diff <= 0){ dd.textContent = '00'; hh.textContent='00'; mm.textContent='00'; ss.textContent='00'; return }
+        const days = Math.floor(diff / (1000*60*60*24));
+        const hours = Math.floor((diff / (1000*60*60)) % 24);
+        const minutes = Math.floor((diff / (1000*60)) % 60);
+        const seconds = Math.floor((diff / 1000) % 60);
+        dd.textContent = pad(days); hh.textContent = pad(hours); mm.textContent = pad(minutes); ss.textContent = pad(seconds);
+      }
+      setInterval(tick, 1000); tick();
+      document.getElementById('year').textContent = new Date().getFullYear();
+      // smooth anchors
+      document.querySelectorAll('a[href^="#"]').forEach(a=>{
+        a.addEventListener('click', e=>{ const id = a.getAttribute('href'); if(id.length>1){ e.preventDefault(); document.querySelector(id).scrollIntoView({behavior:'smooth', block:'start'}) } })
+      });
+    })();
+  </script>
 </body>
 </html>
