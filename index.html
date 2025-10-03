@@ -14,8 +14,8 @@
       --bg:#ffffff;            /* base white */
       --bg-alt:#f6f7f9;        /* light gray for subtle contrast */
       --card:#ffffff;          /* card background */
-      --accent:#9EBB9F;        /* sage green */
-      --accent-2:#B04E6B;      /* dusty pink */
+      --accent:#9cc49d;        /* sage green */
+      --accent-2:#ffacc8;      /* dusty pink */
       --text:#0e1320;          /* near-black text */
       --muted:#5b6477;         /* muted text */
       --warning:#ffd34d;
@@ -113,7 +113,7 @@
     footer{padding:32px 0;color:var(--muted);border-top:1px solid rgba(255,255,255,.08)}
     .footer-grid{display:grid;grid-template-columns:1.2fr .8fr .8fr;gap:16px}
     .social a{display:inline-flex;align-items:center;gap:8px;margin-right:10px;opacity:.9}
-    .badge{display:inline-flex;align-items:center;gap:8px;padding:6px 10px 6px 0;border:1px solid rgba(255,255,255,.12);border-radius:999px}
+    .badge{display:inline-flex;align-items:center;gap:8px;padding:6px 10px;border:1px solid rgba(255,255,255,.12);border-radius:999px}
     /* Responsive */
     /* Contact */
     .contact-band{border-radius:24px;background:linear-gradient(120deg,var(--accent) 0%, rgba(158,187,159,.9) 35%, rgba(176,78,107,.95) 100%);color:#0e1320;padding:28px;box-shadow:var(--shadow)}
@@ -133,7 +133,7 @@
       /* Timeline tighter */
       .timeline{padding-left:26px}
       .timeline:before{left:12px}
-
+    }
       .grid-3{grid-template-columns:1fr 1fr}
       .logo-grid{grid-template-columns:repeat(3,1fr)}
     }
@@ -144,7 +144,7 @@
       .logo-grid{grid-template-columns:repeat(2,1fr)}
       .contact-grid{grid-template-columns:1fr}
       .map{height:280px}
-
+    }
       .countdown{grid-template-columns:repeat(2,1fr)}
       .rules{columns:1}
       .reg-steps{grid-template-columns:1fr}
@@ -180,11 +180,11 @@
     <section class="hero">
       <div class="container hero-grid">
         <div>
-          <div class="eyebrow">12–14 November · PDAM Surabaya</div>
+          <div class="eyebrow">28–30 November 2025 · PDAM Wonokromo Surabaya</div>
           <h2 class="title">Kompetisi Tenis Nasional Airlangga</h2>
           <p class="subtitle">Terbuka untuk <b>Mahasiswa</b> dan <b>Umum</b>. Tiga hari pertandingan, sportivitas, dan momen juara di Surabaya.</p>
           <div class="badges">
-            <span class="chip">Hard Court</span>
+            <span class="chip">Hard Court · Outdoor</span>
             <span class="chip">Tunggal & Ganda</span>
             <span class="chip">Level Nasional</span>
           </div>
@@ -242,93 +242,66 @@
     <!-- DIVISIONS & FORMATS -->
     <section id="divisions">
       <div class="container">
-        <h3 class="section-title">Divisi & Format</h3>
-        <p class="section-sub">Tunggal dan Ganda untuk divisi Mahasiswa dan Umum. Ukuran bagan tergantung jumlah pendaftar. Unggulan ditentukan dari hasil terbaru bila tersedia.</p>
+        <h3 class="section-title">Kategori & Format</h3>
+        <p class="section-sub">Mengacu pada <b>Guidebook ANTC 2025</b>: seluruh nomor adalah <b>Ganda</b>.</p>
         <div class="grid-3">
           <div class="card">
-            <h4>Divisi Mahasiswa</h4>
+            <h4>Kategori Mahasiswa</h4>
             <ul>
-              <li>Tunggal Putra & Putri</li>
-              <li>Ganda Putra & Putri</li>
-              <li>Format: Best of 3 set, Super Tie-break 10 poin (set ke-3)</li>
+              <li>Ganda Putra</li>
+              <li>Ganda Campuran</li>
+              <li>Format pertandingan: Sistem gugur (single elimination), Pro Set (Game 8) tanpa deuce (No-Ad). Tiebreak 7 poin saat 7–7.</li>
             </ul>
           </div>
           <div class="card">
-            <h4>Divisi Umum</h4>
+            <h4>Kategori Umum</h4>
             <ul>
-              <li>Tunggal Open</li>
-              <li>Ganda Open</li>
-              <li>Format: Best of 3 set, Super Tie-break 10 poin (set ke-3)</li>
+              <li>Ganda Putra Beginner Upper</li>
+              <li>Ganda Putri Beginner Upper</li>
+              <li>Ganda Putra Intermediate</li>
+              <li>Format pertandingan: Round Robin (grup 3 tim), Pro Set (Game 6) tanpa deuce (No-Ad). Tiebreak 7 poin saat 5–5.</li>
             </ul>
           </div>
           <div class="card">
-            <h4>Ofisial & Fasilitas</h4>
+            <h4>Ketentuan Peserta (Ringkas)</h4>
             <ul>
-              <li>Wasit bersertifikat</li>
-              <li>Pos P3K & hidrasi</li>
-              <li>Jasa stringing (berbayar, di lokasi)</li>
+              <li><b>Mahasiswa:</b> Mahasiswa aktif (KTM + bukti PDDIKTI), satu pasangan dari kampus yang sama.</li>
+              <li><b>Umum Beginner Upper:</b> WNI, bukan (mantan) pemain berperingkat nasional senior; belum pernah ikut multi-event daerah/nasional; juara ANTC tahun lalu tidak boleh ikut Beginner Upper.</li>
+              <li><b>Umum Intermediate Putra:</b> WNI, tanpa PNP/Internasional; bukan peserta multi-event nasional; mantan PORPROV/POMPROV/POPDA tidak boleh berpasangan.</li>
             </ul>
           </div>
         </div>
+        <p class="section-sub" style="margin-top:10px">Skrining panitia dilakukan untuk Kategori Umum. Keputusan diskualifikasi bersifat final.</p>
       </div>
     </section>
 
     <!-- SCHEDULE -->
     <section id="schedule">
       <div class="container">
-        <h3 class="section-title">Jadwal (12–14 November)</h3>
-        <p class="section-sub">WIB (GMT+7). Jadwal dapat berubah menyesuaikan jumlah peserta & cuaca.</p>
-
-        <h4 class="section-title" style="font-size:20px;color:var(--accent-2);margin-top:10px">Hari 1 · Rabu, 12 Nov</h4>
+        <h3 class="section-title">Linimasa</h3>
+        <p class="section-sub">Mengacu guidebook: Technical Meeting & pertandingan utama.</p>
+        <h4 class="section-title" style="font-size:20px;color:var(--accent-2);margin-top:10px">Technical Meeting — Selasa, 25 Nov 2025</h4>
         <div class="timeline">
           <div class="ti">
-            <div class="ti-head"><span class="time">07:00</span><span class="date">Registrasi & Pemanasan</span></div>
-            <div class="meta">Pengambilan ID & pembukaan lapangan</div>
-          </div>
-          <div class="ti">
-            <div class="ti-head"><span class="time">08:00</span><span class="date">Upacara Pembukaan</span></div>
-            <div class="meta">Sambutan & pengarahan</div>
-          </div>
-          <div class="ti">
-            <div class="ti-head"><span class="time">08:30</span><span class="date">Babak 32 Besar</span></div>
-            <div class="meta">Semua divisi, Tunggal lebih dulu</div>
-          </div>
-          <div class="ti">
-            <div class="ti-head"><span class="time">13:30</span><span class="date">Babak 16 Besar</span></div>
-            <div class="meta">Tunggal & Ganda</div>
+            <div class="ti-head"><span class="time">19:00</span><span class="date">TM Daring/Luring</span></div>
+            <div class="meta">Detail teknis & tanya jawab</div>
           </div>
         </div>
-
-        <h4 class="section-title" style="font-size:20px;color:var(--accent-2);margin-top:26px">Hari 2 · Kamis, 13 Nov</h4>
+        <h4 class="section-title" style="font-size:20px;color:var(--accent-2);margin-top:26px">Hari 1 — Jumat, 28 Nov 2025</h4>
         <div class="timeline">
-          <div class="ti">
-            <div class="ti-head"><span class="time">08:00</span><span class="date">Perempat Final</span></div>
-            <div class="meta">Semua divisi</div>
-          </div>
-          <div class="ti">
-            <div class="ti-head"><span class="time">13:30</span><span class="date">Semifinal</span></div>
-            <div class="meta">Bergantian di beberapa lapangan</div>
-          </div>
-          <div class="ti">
-            <div class="ti-head"><span class="time">17:30</span><span class="date">Tantangan Keterampilan</span></div>
-            <div class="meta">Serve tercepat & target practice (opsional)</div>
-          </div>
+          <div class="ti"><div class="ti-head"><span class="time">07:00</span><span class="date">Registrasi & Pemanasan</span></div><div class="meta">Pengambilan ID & pembukaan lapangan</div></div>
+          <div class="ti"><div class="ti-head"><span class="time">08:00</span><span class="date">Fase Grup/Gugur Awal</span></div><div class="meta">Sesuai nomor</div></div>
         </div>
-
-        <h4 class="section-title" style="font-size:20px;color:var(--accent-2);margin-top:26px">Hari 3 · Jumat, 14 Nov</h4>
+        <h4 class="section-title" style="font-size:20px;color:var(--accent-2);margin-top:26px">Hari 2 — Sabtu, 29 Nov 2025</h4>
         <div class="timeline">
-          <div class="ti">
-            <div class="ti-head"><span class="time">09:00</span><span class="date">Final</span></div>
-            <div class="meta">Semua kategori</div>
-          </div>
-          <div class="ti">
-            <div class="ti-head"><span class="time">14:00</span><span class="date">Penghargaan & Foto</span></div>
-            <div class="meta">Piala, medali, sertifikat</div>
-          </div>
-          <div class="ti">
-            <div class="ti-head"><span class="time">15:00</span><span class="date">Penutupan</span></div>
-            <div class="meta">Terima kasih & umpan balik</div>
-          </div>
+          <div class="ti"><div class="ti-head"><span class="time">08:00</span><span class="date">Perempat Final / Lanjutan Grup</span></div><div class="meta">Sesuai kategori</div></div>
+          <div class="ti"><div class="ti-head"><span class="time">13:30</span><span class="date">Semifinal</span></div><div class="meta">Bergantian di beberapa lapangan</div></div>
+        </div>
+        <h4 class="section-title" style="font-size:20px;color:var(--accent-2);margin-top:26px">Hari 3 — Minggu, 30 Nov 2025</h4>
+        <div class="timeline">
+          <div class="ti"><div class="ti-head"><span class="time">09:00</span><span class="date">Final</span></div><div class="meta">Seluruh kategori</div></div>
+          <div class="ti"><div class="ti-head"><span class="time">14:00</span><span class="date">Penghargaan & Dokumentasi</span></div><div class="meta">Piala, medali, sertifikat</div></div>
+          <div class="ti"><div class="ti-head"><span class="time">15:00</span><span class="date">Penutupan</span></div><div class="meta">Terima kasih & umpan balik</div></div>
         </div>
       </div>
     </section>
@@ -336,7 +309,7 @@
     <!-- VENUE -->
     <section id="venue">
       <div class="container">
-        <h3 class="section-title">Lokasi — PDAM Surabaya</h3>
+        <h3 class="section-title">Lokasi — PDAM Wonokromo Surabaya</h3>
         <p class="section-sub">Terletak di pusat kota dengan beberapa lapangan keras outdoor. Disarankan menggunakan ride-hailing; tetap terhidrasi.</p>
         <div class="venue">
           <div class="panel">
@@ -354,7 +327,8 @@
             </div>
           </div>
           <div>
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3957.484352339383!2d112.74327007630346!3d-7.299351992708297!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd7fba4658ca1db%3A0x55dfe0a2e9c42a65!2sLapangan%20Tenis%20PDAM!5e0!3m2!1sen!2sid!4v1759334705821!5m2!1sen!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <iframe class="map" loading="lazy" allowfullscreen
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31643.912120688358!2d112.709!3d-7.265!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd7fbc0c0000001%3APDAM%20Surabaya!5e0!3m2!1sen!2sid!4v1683700000000"></iframe>
           </div>
         </div>
       </div>
@@ -363,12 +337,11 @@
     <!-- PRIZES & PERKS -->
     <section id="prizes">
       <div class="container">
-        <h3 class="section-title">Hadiah & Benefit</h3>
-        <p class="section-sub">Para juara membawa pulang piala dan kebanggaan. Seluruh finalis mendapatkan medali dan sertifikat.</p>
+        <h3 class="section-title">Hadiah & Fasilitas</h3>
         <div class="grid-3">
-          <div class="card"><div class="trophy">🏆</div><h4>Juara</h4><p>Piala + Medali + Sertifikat</p></div>
-          <div class="card"><div class="trophy">🥈</div><h4>Runner-up</h4><p>Medali + Sertifikat</p></div>
-          <div class="card"><div class="trophy">🤝</div><h4>Penghargaan Fair-Play</h4><p>Apresiasi khusus untuk sportivitas teladan</p></div>
+          <div class="card"><h4>Hadiah Juara</h4><p>Semua kategori: Juara 1–3 & 3 Bersama memperoleh Piagam + Medali + Prize Money.</p></div>
+          <div class="card"><h4>Fasilitas Venue</h4><p>Toilet, Mushola, Ruang Tunggu, Penonton, Parkir, Tim Medis, Stand F&B, Photo Booth.</p></div>
+          <div class="card"><h4>Benefit Peserta</h4><p>Sertifikat, Goodie bag + Merchandise, Dokumentasi.</p></div>
         </div>
       </div>
     </section>
@@ -376,20 +349,17 @@
     <!-- RULES SNAPSHOT -->
     <section id="rules">
       <div class="container">
-        <h3 class="section-title">Ringkasan Peraturan</h3>
-        <p class="section-sub">Buku peraturan penuh berlaku setiap saat. Berikut poin pentingnya:</p>
+        <h3 class="section-title">Ketentuan & Peraturan Umum</h3>
         <ul class="rules">
-          <li>Bola: bola hard-court berstandar ITF.</li>
-          <li>Skor: Best of 3 set, Super Tie-break 10 poin (set ke-3).</li>
-          <li>Pemanasan: maksimal 5 menit.</li>
-          <li>Registrasi: hadir 30 menit sebelum jadwal tanding.</li>
-          <li>Coaching: tidak diperbolehkan saat game; boleh saat jeda set sesuai ketentuan.</li>
-          <li>Kode Etik: hormati ofisial dan lawan; pelanggaran dapat dikenai sanksi.</li>
-          <li>Pensiun/Walkover: wajib dilaporkan segera ke wasit utama.</li>
-          <li>Seragam: sepatu non-marking; bawa dua warna kaus (terang & gelap).</li>
+          <li>Dilarang membawa benda tajam & obat terlarang; dilarang merusak properti/ricuh.</li>
+          <li>Seluruh peserta & ofisial wajib mematuhi peraturan; keputusan panitia/wasit bersifat mutlak.</li>
+          <li>WO: toleransi keterlambatan 5 menit. Mahasiswa: kemenangan WO 8–0; Umum: 6–0.</li>
+          <li>Mahasiswa: Sistem gugur, Pro Set (Game 8) No-Ad; tiebreak 7 poin pada 7–7.</li>
+          <li>Umum: Round Robin (grup 3 tim), Pro Set (Game 6) No-Ad; tiebreak 7 poin pada 5–5.</li>
+          <li>Pelanggaran/pemalsuan data dapat dikenai sanksi Rp1.000.000.</li>
         </ul>
         <div style="margin-top:14px">
-          <a class="btn btn-outline" href="#">Unduh Buku Peraturan (PDF)</a>
+          <a class="btn btn-outline" href="Belum FInal GUIDEBOOK ANTC 2025.pdf" target="_blank" rel="noopener">Unduh Guidebook (PDF)</a>
         </div>
       </div>
     </section>
@@ -398,26 +368,40 @@
     <section id="register">
       <div class="container">
         <h3 class="section-title">Pendaftaran</h3>
-        <p class="section-sub">Slot terbatas per bagan. Amankan tempatmu lebih awal.</p>
+        <p class="section-sub">Ikuti langkah berikut sesuai guidebook.</p>
         <div class="reg-steps">
           <div class="step">
-            <h4>1) Pilih Divisi</h4>
-            <p>Mahasiswa atau Umum · Tunggal/Ganda</p>
+            <h4>1) Isi Form</h4>
+            <p>Akses formulir (link/barcode). Setelah daftar, <b>hubungi CP</b> untuk konfirmasi.</p>
           </div>
           <div class="step">
-            <h4>2) Siapkan Dokumen</h4>
-            <p>KTP/Kartu Identitas; KTM (untuk divisi Mahasiswa); surat keterangan sehat (opsional).</p>
+            <h4>2) Skrining (Umum)</h4>
+            <p>Panitia menyaring berkas pendaftar Kategori Umum. Hasil lolos skrining akan diinformasikan.</p>
           </div>
           <div class="step">
-            <h4>3) Kirim Formulir</h4>
-            <p>Isi formulir online dan tunggu konfirmasi via email/WhatsApp.</p>
+            <h4>3) Pembayaran</h4>
+            <p>Transfer biaya pendaftaran ke <b>Bank Mandiri 1420015740623 a/n UKM TENLAP UNAIR</b> dan kirim bukti via WhatsApp CP.</p>
+          </div>
+        </div>
+        <div class="grid-3" style="margin-top:16px">
+          <div class="card">
+            <h4>Biaya — Mahasiswa</h4>
+            <p>Ganda Putra: <b>Rp400.000/pasangan</b><br>Ganda Campuran: <b>Rp400.000/pasangan</b></p>
+          </div>
+          <div class="card">
+            <h4>Biaya — Umum</h4>
+            <p>Ganda Putra Beginner Upper: <b>Rp500.000/pasangan</b><br>Ganda Putri Beginner Upper: <b>Rp500.000/pasangan</b><br>Ganda Putra Intermediate: <b>Rp500.000/pasangan</b></p>
+          </div>
+          <div class="card">
+            <h4>Dokumen</h4>
+            <p><b>Mahasiswa:</b> KTM, PD-DIKTI, SK Mahasiswa/KRS.<br><b>Umum:</b> KTP/SIM & akun Instagram.</p>
           </div>
         </div>
         <div style="display:flex;gap:10px;margin-top:16px;flex-wrap:wrap">
-          <a class="btn btn-primary" href="#">Daftar Sekarang</a>
-          <a class="btn btn-outline" href="#faq">Baca FAQ</a>
+          <a class="btn btn-primary" href="Belum FInal GUIDEBOOK ANTC 2025.pdf" target="_blank" rel="noopener">Daftar Sekarang (Buka Form/Guidebook)</a>
+          <a class="btn btn-outline" href="Belum FInal GUIDEBOOK ANTC 2025.pdf" target="_blank" rel="noopener">Unduh Guidebook (PDF)</a>
         </div>
-        <!-- <p style="color:var(--muted);margin-top:10px">Disarankan daftar early-bird. Pengembalian dana mengikuti kebijakan di FAQ.</p> -->
+        <p style="color:var(--muted);margin-top:10px">Konfirmasi pembayaran & kirim bukti transfer ke WhatsApp CP: 0856-4815-2457 (Abhi).</p>
       </div>
     </section>
 
@@ -469,10 +453,6 @@
           <p class="section-sub" style="color:#1c2233;margin:0 0 16px">Ada pertanyaan soal pendaftaran, jadwal, atau kerja sama? Hubungi kami!</p>
           <div class="contact-grid">
             <div class="contact-card">
-              <h4>Email</h4>
-              <p><a href="mailto:tennis@airlangga-event.id">tennis@airlangga-event.id</a></p>
-            </div>
-            <div class="contact-card">
               <h4>Telepon</h4>
               <p><a href="tel:+6281234567890">+62 812-3456-7890</a></p>
             </div>
@@ -490,7 +470,7 @@
     <div class="container">
       <div class="footer-grid">
         <div>
-          <div class="badge">Diselenggarakan oleh UKM Tenis Lapangan Universitas Airlangga</div>
+          <div class="badge"><div class="ball" style="width:18px;height:18px"></div> Diselenggarakan oleh Airlangga</div>
           <p style="margin-top:10px">© <span id="year"></span> Airlangga National Tennis Competition. Hak cipta dilindungi.</p>
         </div>
         <div>
