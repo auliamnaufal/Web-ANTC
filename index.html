@@ -64,7 +64,7 @@
     .tile h3{margin:0;font-size:30px}
     .tile span{font-size:12px;color:var(--muted)}
     .hero-illus{position:relative;min-height:360px}
-    .court{position:absolute;inset:0;border-radius:20px;background:linear-gradient(160deg,#9EBB9F 0%, #B04E6B 100%);border:1px solid rgba(14,19,32,.08);overflow:hidden}
+    .court{position:absolute;inset:0;border-radius:20px;background:linear-gradient(160deg,var(--accent) 0%, var(--accent-2) 100%);border:1px solid rgba(14,19,32,.08);overflow:hidden}
     .court:before{content:'';position:absolute;inset:16px;border:2px solid rgba(255,255,255,.25);border-radius:12px}
     .ball-3d{position:absolute;width:110px;height:110px;border-radius:50%;background:radial-gradient(circle at 30% 30%, #fff, #fff 18%, #c8ffea 20%, #76f1b5 32%, #00d27f 60%);box-shadow:0 25px 60px rgba(0,0,0,.45);left:20%;top:24%;animation:float 4.6s ease-in-out infinite}
     .ball-3d:before,.ball-3d:after{content:'';position:absolute;left:14px;right:14px;top:22px;bottom:22px;border:4px solid rgba(255,255,255,.9);border-top:none;border-bottom:none;border-radius:50%}
@@ -96,7 +96,38 @@
     .vchip{background:#fff;border:1px solid rgba(14,19,32,.08);border-radius:999px;padding:8px 12px;font-weight:600}
     .map{border:0;width:100%;height:340px;border-radius:16px;box-shadow:var(--shadow)}
     /* Pricing/Prizes */
+    /* Prizes WOW styling */
+    .prize-wrap{border-radius:28px;padding:28px;background:linear-gradient(135deg, rgba(255,172,200,.25), rgba(156,196,157,.25));box-shadow:var(--shadow);border:1px solid rgba(14,19,32,.08)}
+    .prize-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;margin-top:12px}
+    .prize-card{position:relative;padding:22px;border-radius:20px;background:#fff;border:1px solid rgba(14,19,32,.08);box-shadow:0 8px 30px rgba(255,172,200,.25)}
+    .prize-card.gold{background:linear-gradient(180deg,#fff,#fff7fb)}
+    .prize-card.silver{background:linear-gradient(180deg,#fff,#f7fff9)}
+    .prize-card.bronze{background:linear-gradient(180deg,#fff,#fdf6ff)}
+    .ribbon{position:absolute;top:16px;right:-10px;background:var(--accent-2);color:#2b0f19;padding:8px 14px;border-radius:999px;font-weight:800;box-shadow:var(--shadow)}
+    .perks{margin:10px 0 0;padding-left:18px}
+    .perks li{margin:6px 0}
     .trophy{font-size:48px}
+    /* Kategori & Format styling */
+    .format-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px}
+    .format-card{padding:22px;border-radius:20px;background:#fff;border:1px solid rgba(14,19,32,.08);box-shadow:var(--shadow)}
+    .format-head{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+    .pill{display:inline-flex;align-items:center;padding:6px 10px;border-radius:999px;font-weight:800;font-size:12px}
+    .pill.green{background:rgba(156,196,157,.25);color:#2a5a2e}
+    .pill.pink{background:rgba(255,172,200,.25);color:#7a1e3b}
+    .format-list{margin:0;padding-left:18px}
+    .format-list li{margin:6px 0}
+    /* Registration enhanced */
+    .price-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;margin-top:18px}
+    .price-card{position:relative;padding:22px;border-radius:20px;background:#fff;border:1px solid rgba(14,19,32,.08);box-shadow:var(--shadow)}
+    .price-card.highlight{outline:2px solid var(--accent-2)}
+    .price-head{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+    .price{font-size:22px;font-weight:800;margin:6px 0 10px}
+    .price span{font-size:40px}
+    .benefits{margin:0 0 14px;padding-left:18px}
+    .benefits li{margin:6px 0}
+    .doc-card{padding:22px;border-radius:20px;background:linear-gradient(180deg, rgba(255,172,200,.12), #fff);border:1px solid rgba(14,19,32,.08)}
+    .doc-card .small{color:var(--muted);font-size:13px}
+    .bank-banner{margin-top:16px;padding:14px;border-radius:14px;background:linear-gradient(90deg, rgba(156,196,157,.25), rgba(255,172,200,.25));border:1px dashed rgba(14,19,32,.18);font-weight:700}
     /* Rules */
     .rules{columns:2;column-gap:18px}
     .rules li{margin:0 0 10px}
@@ -117,7 +148,7 @@
     /* Responsive */
     /* Contact */
     .contact-band{border-radius:24px;background:linear-gradient(120deg,var(--accent) 0%, rgba(158,187,159,.9) 35%, rgba(176,78,107,.95) 100%);color:#0e1320;padding:28px;box-shadow:var(--shadow)}
-    .contact-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .contact-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
     .contact-card{background:#ffffff;border:1px solid rgba(14,19,32,.08);border-radius:16px;padding:16px}
     .contact-card h4{margin:0 0 6px}
     .contact-card a{font-weight:800}
@@ -133,9 +164,7 @@
       /* Timeline tighter */
       .timeline{padding-left:26px}
       .timeline:before{left:12px}
-    }
-      .grid-3{grid-template-columns:1fr 1fr}
-      .logo-grid{grid-template-columns:repeat(3,1fr)}
+      .format-grid,.price-grid{grid-template-columns:1fr}
     }
     @media (max-width: 640px){
       .countdown{grid-template-columns:repeat(2,1fr)}
@@ -144,11 +173,6 @@
       .logo-grid{grid-template-columns:repeat(2,1fr)}
       .contact-grid{grid-template-columns:1fr}
       .map{height:280px}
-    }
-      .countdown{grid-template-columns:repeat(2,1fr)}
-      .rules{columns:1}
-      .reg-steps{grid-template-columns:1fr}
-      .logo-grid{grid-template-columns:repeat(2,1fr)}
     }
   </style>
 </head>
@@ -184,8 +208,8 @@
           <h2 class="title">Kompetisi Tenis Nasional Airlangga</h2>
           <p class="subtitle">Terbuka untuk <b>Mahasiswa</b> dan <b>Umum</b>. Tiga hari pertandingan, sportivitas, dan momen juara di Surabaya.</p>
           <div class="badges">
-            <span class="chip">Hard Court · Outdoor</span>
-            <span class="chip">Tunggal & Ganda</span>
+            <span class="chip">Lapangan Keras · Outdoor</span>
+            <span class="chip">Nomor Ganda</span>
             <span class="chip">Level Nasional</span>
           </div>
           <div class="hero-card glass">
@@ -243,35 +267,38 @@
     <section id="divisions">
       <div class="container">
         <h3 class="section-title">Kategori & Format</h3>
-        <p class="section-sub">Mengacu pada <b>Guidebook ANTC 2025</b>: seluruh nomor adalah <b>Ganda</b>.</p>
-        <div class="grid-3">
-          <div class="card">
-            <h4>Kategori Mahasiswa</h4>
-            <ul>
-              <li>Ganda Putra</li>
-              <li>Ganda Campuran</li>
-              <li>Format pertandingan: Sistem gugur (single elimination), Pro Set (Game 8) tanpa deuce (No-Ad). Tiebreak 7 poin saat 7–7.</li>
+        <p class="section-sub">Seluruh nomor <b>Ganda</b> sesuai Guidebook ANTC 2025. Pilih kategori dan lihat format mainnya.</p>
+        <div class="format-grid">
+          <div class="format-card">
+            <div class="format-head">
+              <span class="pill green">Mahasiswa</span>
+              <h4>Ganda Putra • Ganda Campuran</h4>
+            </div>
+            <ul class="format-list">
+              <li>🔸 <b>Sistem:</b> Gugur (Single Elimination)</li>
+              <li>🔸 <b>Skor:</b> Pro Set <b>Game 8</b>, <i>No-Ad</i></li>
+              <li>🔸 <b>Tie-break:</b> 7 poin saat <b>7–7</b></li>
+              <li>🔸 <b>Persyaratan:</b> KTM + PDDIKTI; satu pasangan dari kampus sama</li>
             </ul>
           </div>
-          <div class="card">
-            <h4>Kategori Umum</h4>
-            <ul>
-              <li>Ganda Putra Beginner Upper</li>
-              <li>Ganda Putri Beginner Upper</li>
-              <li>Ganda Putra Intermediate</li>
-              <li>Format pertandingan: Round Robin (grup 3 tim), Pro Set (Game 6) tanpa deuce (No-Ad). Tiebreak 7 poin saat 5–5.</li>
+          <div class="format-card">
+            <div class="format-head">
+              <span class="pill pink">Umum</span>
+              <h4>Beginner Upper (Putra/Putri) • Intermediate (Putra)</h4>
+            </div>
+            <ul class="format-list">
+              <li>🔸 <b>Sistem:</b> Round Robin (grup 3 tim)</li>
+              <li>🔸 <b>Skor:</b> Pro Set <b>Game 6</b>, <i>No-Ad</i></li>
+              <li>🔸 <b>Tie-break:</b> 7 poin saat <b>5–5</b></li>
+              <li>🔸 <b>Skrining:</b> Validasi kelayakan oleh panitia (keputusan final)</li>
             </ul>
-          </div>
-          <div class="card">
-            <h4>Ketentuan Peserta (Ringkas)</h4>
-            <ul>
-              <li><b>Mahasiswa:</b> Mahasiswa aktif (KTM + bukti PDDIKTI), satu pasangan dari kampus yang sama.</li>
-              <li><b>Umum Beginner Upper:</b> WNI, bukan (mantan) pemain berperingkat nasional senior; belum pernah ikut multi-event daerah/nasional; juara ANTC tahun lalu tidak boleh ikut Beginner Upper.</li>
-              <li><b>Umum Intermediate Putra:</b> WNI, tanpa PNP/Internasional; bukan peserta multi-event nasional; mantan PORPROV/POMPROV/POPDA tidak boleh berpasangan.</li>
-            </ul>
+            <div class="badges mini">
+              <span class="chip">Bebas pemain PNP/Internasional</span>
+              <span class="chip">Bukan peserta multi-event nasional</span>
+            </div>
           </div>
         </div>
-        <p class="section-sub" style="margin-top:10px">Skrining panitia dilakukan untuk Kategori Umum. Keputusan diskualifikasi bersifat final.</p>
+        <p class="section-sub" style="margin-top:14px">Detail lengkap ada di guidebook.</p>
       </div>
     </section>
 
@@ -321,14 +348,13 @@
               <li>Cuaca: panas & lembap — bawa sunscreen & topi</li>
             </ul>
             <div class="venue-features">
-              <div class="vchip">🏟️ Hard Court</div>
+              <div class="vchip">🏟️ Lapangan Keras</div>
               <div class="vchip">🩹 P3K</div>
               <div class="vchip">💧 Hidrasi</div>
             </div>
           </div>
           <div>
-            <iframe class="map" loading="lazy" allowfullscreen
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31643.912120688358!2d112.709!3d-7.265!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd7fbc0c0000001%3APDAM%20Surabaya!5e0!3m2!1sen!2sid!4v1683700000000"></iframe>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3957.484352339383!2d112.74327007630346!3d-7.299351992708297!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd7fba4658ca1db%3A0x55dfe0a2e9c42a65!2sLapangan%20Tenis%20PDAM!5e0!3m2!1sen!2sid!4v1759505881191!5m2!1sen!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
           </div>
         </div>
       </div>
@@ -337,11 +363,37 @@
     <!-- PRIZES & PERKS -->
     <section id="prizes">
       <div class="container">
-        <h3 class="section-title">Hadiah & Fasilitas</h3>
-        <div class="grid-3">
-          <div class="card"><h4>Hadiah Juara</h4><p>Semua kategori: Juara 1–3 & 3 Bersama memperoleh Piagam + Medali + Prize Money.</p></div>
-          <div class="card"><h4>Fasilitas Venue</h4><p>Toilet, Mushola, Ruang Tunggu, Penonton, Parkir, Tim Medis, Stand F&B, Photo Booth.</p></div>
-          <div class="card"><h4>Benefit Peserta</h4><p>Sertifikat, Goodie bag + Merchandise, Dokumentasi.</p></div>
+        <div class="prize-wrap">
+          <h3 class="section-title">Hadiah & Fasilitas</h3>
+          <p class="section-sub" style="color:#1c2233">Rayakan para juara ANTC 2025 — tampil lebih keren, hadiah lebih mantap!</p>
+          <div class="prize-grid">
+            <div class="prize-card gold">
+              <div class="ribbon">Juara</div>
+              <h4>Prize Money + Medali + Piagam</h4>
+              <ul class="perks">
+                <li>🏆 Trofi eksklusif</li>
+                <li>🏅 Medali Juara</li>
+                <li>📜 Piagam resmi</li>
+              </ul>
+            </div>
+            <div class="prize-card silver">
+              <h4>Fasilitas Venue</h4>
+              <ul class="perks">
+                <li>🚻 Toilet & Mushola</li>
+                <li>🅿️ Parkir & Area Penonton</li>
+                <li>⛑️ Tim Medis Siaga</li>
+                <li>🍔 Stand F&B • 📸 Photo Booth</li>
+              </ul>
+            </div>
+            <div class="prize-card bronze">
+              <h4>Benefit Peserta</h4>
+              <ul class="perks">
+                <li>🎁 Goodie Bag & Merchandise</li>
+                <li>📷 Dokumentasi</li>
+                <li>📜 Sertifikat Peserta</li>
+              </ul>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -380,25 +432,52 @@
           </div>
           <div class="step">
             <h4>3) Pembayaran</h4>
-            <p>Transfer biaya pendaftaran ke <b>Bank Mandiri 1420015740623 a/n UKM TENLAP UNAIR</b> dan kirim bukti via WhatsApp CP.</p>
+            <p>Transfer biaya pendaftaran ke <b>Mandiri 1420015740623</b> a/n <b>UKM TENLAP UNAIR</b> dan kirim bukti via WhatsApp CP.</p>
           </div>
         </div>
-        <div class="grid-3" style="margin-top:16px">
-          <div class="card">
-            <h4>Biaya — Mahasiswa</h4>
-            <p>Ganda Putra: <b>Rp400.000/pasangan</b><br>Ganda Campuran: <b>Rp400.000/pasangan</b></p>
+
+        <div class="price-grid">
+          <div class="price-card">
+            <div class="price-head">
+              <span class="pill green">Mahasiswa</span>
+              <h4>Ganda Putra & Campuran</h4>
+            </div>
+            <div class="price">Rp<span>400</span>K / pasangan</div>
+            <ul class="benefits">
+              <li>✔ Biaya pendaftaran tetap</li>
+              <li>✔ Sertifikat & dokumentasi</li>
+              <li>✔ Goodie bag + merchandise</li>
+            </ul>
+            <a class="btn btn-primary" href="https://forms.gle/VhBtYvhrDspUnhFN9" target="_blank" rel="noopener">Daftar Mahasiswa</a>
           </div>
-          <div class="card">
-            <h4>Biaya — Umum</h4>
-            <p>Ganda Putra Beginner Upper: <b>Rp500.000/pasangan</b><br>Ganda Putri Beginner Upper: <b>Rp500.000/pasangan</b><br>Ganda Putra Intermediate: <b>Rp500.000/pasangan</b></p>
+
+          <div class="price-card highlight">
+            <div class="price-head">
+              <span class="pill pink">Umum</span>
+              <h4>Beginner Upper & Intermediate</h4>
+            </div>
+            <div class="price">Rp<span>500</span>K / pasangan</div>
+            <ul class="benefits">
+              <li>✔ Round Robin (3 tim/grup)</li>
+              <li>✔ Sertifikat & dokumentasi</li>
+              <li>✔ Goodie bag + merchandise</li>
+            </ul>
+            <a class="btn btn-primary" href="https://forms.gle/VhBtYvhrDspUnhFN9" target="_blank" rel="noopener">Daftar Umum</a>
           </div>
-          <div class="card">
+
+          <div class="doc-card">
             <h4>Dokumen</h4>
-            <p><b>Mahasiswa:</b> KTM, PD-DIKTI, SK Mahasiswa/KRS.<br><b>Umum:</b> KTP/SIM & akun Instagram.</p>
+            <ul>
+              <li><b>Mahasiswa:</b> KTM, PD-DIKTI, SK Mahasiswa/KRS</li>
+              <li><b>Umum:</b> KTP/SIM & akun Instagram</li>
+            </ul>
+            <p class="small">Skrining kelayakan dilakukan panitia untuk kategori umum.</p>
           </div>
         </div>
-        <div style="display:flex;gap:10px;margin-top:16px;flex-wrap:wrap">
-          <a class="btn btn-primary" href="Belum FInal GUIDEBOOK ANTC 2025.pdf" target="_blank" rel="noopener">Daftar Sekarang (Buka Form/Guidebook)</a>
+
+        <div class="bank-banner"><b>Bank Mandiri 1420015740623</b> a/n <b>UKM TENLAP UNAIR</b> • Kirim bukti via WhatsApp CP.</div>
+
+        <div style="display:flex;gap:10px;margin-top:10px;flex-wrap:wrap">
           <a class="btn btn-outline" href="Belum FInal GUIDEBOOK ANTC 2025.pdf" target="_blank" rel="noopener">Unduh Guidebook (PDF)</a>
         </div>
         <p style="color:var(--muted);margin-top:10px">Konfirmasi pembayaran & kirim bukti transfer ke WhatsApp CP: 0856-4815-2457 (Abhi).</p>
@@ -479,9 +558,7 @@
         </div>
         <div class="social">
           <h4 style="margin:0 0 8px">Ikuti</h4>
-          <a href="#">Instagram</a>
-          <a href="#">X</a>
-          <a href="#">TikTok</a>
+          <a href="https://www.instagram.com/airlanggatennisclub">Instagram</a>
         </div>
       </div>
     </div>
